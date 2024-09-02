@@ -1,9 +1,10 @@
 import Sidebar from "./Components/Sidebar/Sidebar.jsx";
+import Home from "./Components/Home/Home.jsx";
 function App() {
   return (
-    <main className={"h-screen my-8 flex gap-8"}>
+    <main className={"h-screen flex gap-8"}>
         <Sidebar />
-        <h1 className="my-8 text-center text-5xl font-bold">Hello World</h1>
+        <Home />
     </main>
   );
 }
