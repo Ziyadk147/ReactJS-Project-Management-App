@@ -2,7 +2,7 @@ import Sidebar from "./Components/Sidebar/Sidebar.jsx";
 import Home from "./Components/Home/Home.jsx";
 import {useState} from "react";
 function App() {
-    const [projects , setProjects] = useState([])
+    const [projects , setProjects] = useState()
     const [projectId , setProjectId] = useState(0);
     function handleProjectCreation(project){
         // setProjects( (prevState) => {
@@ -20,9 +20,7 @@ function App() {
         setProjectId(id)
     }
     function handleProjectDelete(project){
-        setProjects( (prevState) => {
-            console.log(prevState , project)
-        } )
+        setProjects( (prevState) => prevState.filter((item) => item !== project)  )
     }
 
   return (
