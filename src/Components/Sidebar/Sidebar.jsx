@@ -19,7 +19,7 @@ export default function Sidebar({ onProjectSelected , handleProjectCreation , pr
             </button>
             <NewProject ref={modalRef} onSave={handleProjectCreation}/>
             <ul className={"mt-8"}>
-                {projects.map((project , projectIndex) => (
+                {projects && projects.map((project , projectIndex) => (
                     <li className={"flex justify-between "} key={projectIndex}>
                         <button
                             onClick={() => onProjectSelected(projectIndex)}
