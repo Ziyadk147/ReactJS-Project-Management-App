@@ -1,15 +1,12 @@
 import NewProject from "../NewProject/NewProject.jsx";
 import {useRef, useState} from "react";
 
-export default function Sidebar(){
+export default function Sidebar({ onProjectSelected , handleProjectCreation , projects , selectedProject}){
     const modalRef = useRef();
-    const [projects , setProjects] = useState([])
     function handleModalOpen(){
         modalRef.current.trigger()
     }
-    function handleProjectCreation(project){
-        setProjects( (prevState) => [...prevState , project] )
-    }
+
 
     return (
         <aside className={"w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl"}>
@@ -25,8 +22,10 @@ export default function Sidebar(){
                 {projects.map((project , projectIndex) => (
                     <li className={"flex justify-between "} key={projectIndex}>
                         <button
-                            className={"w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800"}>
-                            {project.title ?? ""}
+                            onClick={() => onProjectSelected(projectIndex)}
+                            className=
+                                {`w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800` + (selectedProject === projectIndex ? ' text-stone-200 bg-stone-800' : "")}>
+                            {project ? project.title : ""}
                         </button>
                     </li>
 

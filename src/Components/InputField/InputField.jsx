@@ -9,12 +9,13 @@ const InputField = ( {textArea = false , label , inputName , onChange , fieldVal
             <label htmlFor="" className={"text-sm font-bold uppercase text-stone-500"}>
                 {label}
             </label>
-            {textArea === true && <textarea  className={classes} onChange={onChange} value={fieldValue} name={inputName} />}
+            {textArea === true && <textarea  required={true} className={classes} onChange={onChange} value={fieldValue} name={inputName} />}
             {textArea !== true && <input
                 name={inputName}
                 className={classes}
                 onChange={onChange}
                 value={fieldValue}
+                required={true}
             />
             }
         </p>
