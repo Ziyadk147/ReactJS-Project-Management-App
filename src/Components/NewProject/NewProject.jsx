@@ -1,6 +1,6 @@
 import InputField from "../InputField/InputField.jsx";
 import {forwardRef, useImperativeHandle, useRef, useState} from "react";
-const  NewProject = forwardRef( (props, ref) => {
+const  NewProject = forwardRef( ({onSave}, ref) => {
     const modalRef = useRef()
 
     const [inputData , setInputData]= useState({
@@ -37,6 +37,7 @@ const  NewProject = forwardRef( (props, ref) => {
 
     function handleSave(){
         modalRef.current.open = false;
+        onSave(inputData);
         setInputData(undefined)
 
     }
