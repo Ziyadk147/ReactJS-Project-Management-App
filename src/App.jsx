@@ -1,7 +1,6 @@
 import Sidebar from "./Components/Sidebar/Sidebar.jsx";
 import Home from "./Components/Home/Home.jsx";
 import {useState} from "react";
-import {list} from "postcss";
 function App() {
     const [projects , setProjects] = useState()
     const [projectId , setProjectId] = useState(0);
@@ -11,8 +10,11 @@ function App() {
            if(itemIndex === projectId){
                 return {
                     ...item,
-                    tasks: [...item.tasks , Task ]
+                    tasks: item.tasks ? [...item.tasks , Task] : [Task]
                 }
+           }
+           else{
+               return item;
            }
        })
        )
@@ -27,6 +29,9 @@ function App() {
                     ...item ,
                     tasks: item.tasks.filter( (item) => item !== Task )
                 }
+            }
+            else{
+                return item;
             }
         } ) )
     }
