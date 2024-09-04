@@ -1,4 +1,6 @@
-export default function Home({project , onDelete}) {
+import Task from "../Task/Task.jsx";
+
+export default function Home({project , projectId ,  onDelete , handleTaskCreation , handleTaskDeletion}) {
     let homeBody
     if(project){
         homeBody = (
@@ -17,16 +19,7 @@ export default function Home({project , onDelete}) {
                     </p>
                 </div>
             </header>
-            <div className=" h-fit  ">
-                <div className=" mt-8 flex flex-row justify-between gap-4">
-                    <h2 className="text-5xl font-bold text-stone-700 mb-4">Tasks</h2>
-                </div>
-                <div className=" mt-8 flex flex-row justify-start gap-4">
-                    <input className="w-64 px-2 py-1 rounded-sm bg-stone-200"/>
-                    <button className=" bg-stone-600 rounded-md p-3 text-stone-200 font-bold hover:text-stone-800 hover:bg-stone-200">Add Task</button>
-                </div>
-
-            </div>
+               <Task handleTaskCreation={handleTaskCreation} project={projectId} Tasks = {project.tasks} handleTaskDeletion={handleTaskDeletion} />
         </div>
         )
     }

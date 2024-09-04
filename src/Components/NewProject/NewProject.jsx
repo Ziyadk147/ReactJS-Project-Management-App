@@ -7,6 +7,7 @@ const  NewProject = forwardRef( ({onSave}, ref) => {
         title: "",
         description:"",
         dueDate: "",
+        tasks: [],
     })
     useImperativeHandle(ref , () => {
         return {
